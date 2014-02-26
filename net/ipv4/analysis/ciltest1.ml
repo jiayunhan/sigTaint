@@ -5,7 +5,7 @@
 open Printf
 open Cil
 
-let files = [ "test1.i"; "main.i" ]
+let files = [ "../tcp_input.i" ]
 
 let () =
   (* Load each input file. *)
