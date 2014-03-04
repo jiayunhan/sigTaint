@@ -1,0 +1,6 @@
+digraph CFG_sock_set_flag {
+246 [label="246: instr"]
+	246 -> 247
+247 [label="247: return"]
+	
+}

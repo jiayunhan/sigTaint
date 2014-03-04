@@ -1,0 +1,23 @@
+digraph CFG___skb_pull {
+123 [label="123: instr"]
+	123 -> 124
+124 [label="124: loop"]
+	124 -> 125
+125 [label="125: instr"]
+	125 -> 126
+126 [label="126: if"]
+	126 -> 127
+	126 -> 130
+127 [label="127: loop"]
+	127 -> 128
+128 [label="128: instr"]
+	128 -> 129
+129 [label="129: break"]
+	129 -> 130
+130 [label="130: break"]
+	130 -> 131
+131 [label="131: instr"]
+	131 -> 132
+132 [label="132: return"]
+	
+}

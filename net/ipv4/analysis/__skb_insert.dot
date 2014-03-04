@@ -1,0 +1,6 @@
+digraph CFG___skb_insert {
+105 [label="105: instr"]
+	105 -> 106
+106 [label="106: return"]
+	
+}

@@ -1,0 +1,6 @@
+digraph CFG_sk_can_gso {
+297 [label="297: instr"]
+	297 -> 298
+298 [label="298: return"]
+	
+}

@@ -1,0 +1,6 @@
+digraph CFG_inet_csk_schedule_ack {
+308 [label="308: instr"]
+	308 -> 309
+309 [label="309: return"]
+	
+}

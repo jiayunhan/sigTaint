@@ -1152,7 +1152,7 @@ extern bool __static_cpu_has_safe(u16 bit);
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) __attribute__((pure)) bool __static_cpu_has(u16 bit)
 {
 # 391 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/cpufeature.h"
-  do { asm goto("1: jmp %l[t_no]\n" "2:\n" ".section .altinstructions,\"a\"\n" " .long 1b - .\n" " .long 0\n" " .word %P0\n" " .byte 2b - 1b\n" " .byte 0\n" ".previous\n" : : "i" (bit) : : t_no); asm (""); } while (0)
+#  do { asm goto("1: jmp %l[t_no]\n" "2:\n" ".section .altinstructions,\"a\"\n" " .long 1b - .\n" " .long 0\n" " .word %P0\n" " .byte 2b - 1b\n" " .byte 0\n" ".previous\n" : : "i" (bit) : : t_no); asm (""); } while (0)
 # 401 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/cpufeature.h"
                            ;
   return true;
@@ -1170,7 +1170,7 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
 
 
 
-  do { asm goto("1: .byte 0xe9\n .long %l[t_dynamic] - 2f\n" "2:\n" ".section .altinstructions,\"a\"\n" " .long 1b - .\n" " .long 3f - .\n" " .word %P1\n" " .byte 2b - 1b\n" " .byte 4f - 3f\n" ".previous\n" ".section .altinstr_replacement,\"ax\"\n" "3: .byte 0xe9\n .long %l[t_no] - 2b\n" "4:\n" ".previous\n" ".section .altinstructions,\"a\"\n" " .long 1b - .\n" " .long 0\n" " .word %P0\n" " .byte 2b - 1b\n" " .byte 0\n" ".previous\n" : : "i" (bit), "i" ((3*32+21)) : : t_dynamic, t_no); asm (""); } while (0)
+#  do { asm goto("1: .byte 0xe9\n .long %l[t_dynamic] - 2f\n" "2:\n" ".section .altinstructions,\"a\"\n" " .long 1b - .\n" " .long 3f - .\n" " .word %P1\n" " .byte 2b - 1b\n" " .byte 4f - 3f\n" ".previous\n" ".section .altinstr_replacement,\"ax\"\n" "3: .byte 0xe9\n .long %l[t_no] - 2b\n" "4:\n" ".previous\n" ".section .altinstructions,\"a\"\n" " .long 1b - .\n" " .long 0\n" " .word %P0\n" " .byte 2b - 1b\n" " .byte 0\n" ".previous\n" : : "i" (bit), "i" ((3*32+21)) : : t_dynamic, t_no); asm (""); } while (0)
 # 477 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/cpufeature.h"
                         ;
   return true;
@@ -1271,7 +1271,7 @@ static inline __attribute__((no_instrument_function)) void change_bit(long nr, v
 # 206 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) int test_and_set_bit(long nr, volatile unsigned long *addr)
 {
- do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "bts" " %1, " "%0" "; j" "c" " %l[cc_label]" : : "m" (*addr), "Ir" (nr) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
+# do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "bts" " %1, " "%0" "; j" "c" " %l[cc_label]" : : "m" (*addr), "Ir" (nr) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
 }
 # 218 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) int
@@ -1293,7 +1293,7 @@ static inline __attribute__((no_instrument_function)) int __test_and_set_bit(lon
 # 252 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) int test_and_clear_bit(long nr, volatile unsigned long *addr)
 {
- do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "btr" " %1, " "%0" "; j" "c" " %l[cc_label]" : : "m" (*addr), "Ir" (nr) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
+# do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "btr" " %1, " "%0" "; j" "c" " %l[cc_label]" : : "m" (*addr), "Ir" (nr) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
 }
 # 273 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) int __test_and_clear_bit(long nr, volatile unsigned long *addr)
@@ -1322,7 +1322,7 @@ static inline __attribute__((no_instrument_function)) int __test_and_change_bit(
 # 305 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/bitops.h"
 static inline __attribute__((no_instrument_function)) int test_and_change_bit(long nr, volatile unsigned long *addr)
 {
- do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "btc" " %1, " "%0" "; j" "c" " %l[cc_label]" : : "m" (*addr), "Ir" (nr) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
+# do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "btc" " %1, " "%0" "; j" "c" " %l[cc_label]" : : "m" (*addr), "Ir" (nr) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
 }
 
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) int constant_test_bit(long nr, const volatile unsigned long *addr)
@@ -4645,8 +4645,7 @@ static inline __attribute__((no_instrument_function)) s64 div_s64(s64 dividend, 
 
 u32 iter_div_u64_rem(u64 dividend, u32 divisor, u64 *remainder);
 
-static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) u32
-__iter_div_u64_rem(u64 dividend, u32 divisor, u64 *remainder)
+static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) u32__iter_div_u64_rem(u64 dividend, u32 divisor, u64 *remainder)
 {
  u32 ret = 0;
 
@@ -4667,10 +4666,10 @@ __iter_div_u64_rem(u64 dividend, u32 divisor, u64 *remainder)
 
 
 
-static inline __attribute__((no_instrument_function)) u64 mul_u64_u32_shr(u64 a, u32 mul, unsigned int shift)
-{
- return (u64)(((unsigned __int128)a * mul) >> shift);
-}
+#static inline __attribute__((no_instrument_function)) u64 mul_u64_u32_shr(u64 a, u32 mul, unsigned int shift)
+#{
+# return (u64)(((unsigned __int128)a * mul) >> shift);
+#}
 # 30 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/processor.h" 2
 
 # 1 "include/linux/err.h" 1
@@ -5555,7 +5554,7 @@ static inline __attribute__((no_instrument_function)) void atomic_sub(int i, ato
 # 78 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_sub_and_test(int i, atomic_t *v)
 {
- do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "subl" " %1, " "%0" "; j" "e" " %l[cc_label]" : : "m" (v->counter), "er" (i) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
+# do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "subl" " %1, " "%0" "; j" "e" " %l[cc_label]" : : "m" (v->counter), "er" (i) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
 }
 
 
@@ -5584,17 +5583,17 @@ static inline __attribute__((no_instrument_function)) void atomic_dec(atomic_t *
 # 115 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_dec_and_test(atomic_t *v)
 {
- do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "decl" " " "%0" "; j" "e" " %l[cc_label]" : : "m" (v->counter) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
+# do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "decl" " " "%0" "; j" "e" " %l[cc_label]" : : "m" (v->counter) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
 }
 # 128 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_inc_and_test(atomic_t *v)
 {
- do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "incl" " " "%0" "; j" "e" " %l[cc_label]" : : "m" (v->counter) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
+# do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "incl" " " "%0" "; j" "e" " %l[cc_label]" : : "m" (v->counter) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
 }
 # 142 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_add_negative(int i, atomic_t *v)
 {
- do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "addl" " %1, " "%0" "; j" "s" " %l[cc_label]" : : "m" (v->counter), "er" (i) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
+# do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "addl" " %1, " "%0" "; j" "s" " %l[cc_label]" : : "m" (v->counter), "er" (i) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
 }
 # 154 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/atomic.h"
 static inline __attribute__((no_instrument_function)) int atomic_add_return(int i, atomic_t *v)
@@ -5674,7 +5673,7 @@ static inline __attribute__((no_instrument_function)) void atomic64_sub(long i, 
 # 73 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) int atomic64_sub_and_test(long i, atomic64_t *v)
 {
- do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "subq" " %1, " "%0" "; j" "e" " %l[cc_label]" : : "m" (v->counter), "er" (i) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
+# do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "subq" " %1, " "%0" "; j" "e" " %l[cc_label]" : : "m" (v->counter), "er" (i) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
 }
 
 
@@ -5705,17 +5704,17 @@ static inline __attribute__((no_instrument_function)) void atomic64_dec(atomic64
 # 112 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) int atomic64_dec_and_test(atomic64_t *v)
 {
- do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "decq" " " "%0" "; j" "e" " %l[cc_label]" : : "m" (v->counter) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
+# do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "decq" " " "%0" "; j" "e" " %l[cc_label]" : : "m" (v->counter) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
 }
 # 125 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) int atomic64_inc_and_test(atomic64_t *v)
 {
- do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "incq" " " "%0" "; j" "e" " %l[cc_label]" : : "m" (v->counter) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
+# do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "incq" " " "%0" "; j" "e" " %l[cc_label]" : : "m" (v->counter) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
 }
 # 139 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) int atomic64_add_negative(long i, atomic64_t *v)
 {
- do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "addq" " %1, " "%0" "; j" "s" " %l[cc_label]" : : "m" (v->counter), "er" (i) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
+# do { do { asm goto(".pushsection .smp_locks,\"a\"\n" ".balign 4\n" ".long 671f - .\n" ".popsection\n" "671:" "\n\tlock; " "addq" " %1, " "%0" "; j" "s" " %l[cc_label]" : : "m" (v->counter), "er" (i) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
 }
 # 151 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/atomic64_64.h"
 static inline __attribute__((no_instrument_function)) long atomic64_add_return(long i, atomic64_t *v)
@@ -6078,17 +6077,17 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
 
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) void preempt_count_set(int pc)
 {
- do { typedef typeof((__preempt_count)) pto_T__; if (0) { pto_T__ pto_tmp__; pto_tmp__ = (pc); (void)pto_tmp__; } switch (sizeof((__preempt_count))) { case 1: asm("mov" "b %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "qi" ((pto_T__)(pc))); break; case 2: asm("mov" "w %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "ri" ((pto_T__)(pc))); break; case 4: asm("mov" "l %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "ri" ((pto_T__)(pc))); break; case 8: asm("mov" "q %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "re" ((pto_T__)(pc))); break; default: __bad_percpu_size(); } } while (0);
+# do { typedef typeof((__preempt_count)) pto_T__; if (0) { pto_T__ pto_tmp__; pto_tmp__ = (pc); (void)pto_tmp__; } switch (sizeof((__preempt_count))) { case 1: asm("mov" "b %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "qi" ((pto_T__)(pc))); break; case 2: asm("mov" "w %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "ri" ((pto_T__)(pc))); break; case 4: asm("mov" "l %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "ri" ((pto_T__)(pc))); break; case 8: asm("mov" "q %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "re" ((pto_T__)(pc))); break; default: __bad_percpu_size(); } } while (0);
 }
 # 54 "/home/fakejohn/Documents/tcp_security/sigTaint/arch/x86/include/asm/preempt.h"
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) void set_preempt_need_resched(void)
 {
- do { typedef typeof((__preempt_count)) pto_T__; if (0) { pto_T__ pto_tmp__; pto_tmp__ = (~0x80000000); (void)pto_tmp__; } switch (sizeof((__preempt_count))) { case 1: asm("and" "b %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "qi" ((pto_T__)(~0x80000000))); break; case 2: asm("and" "w %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "ri" ((pto_T__)(~0x80000000))); break; case 4: asm("and" "l %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "ri" ((pto_T__)(~0x80000000))); break; case 8: asm("and" "q %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "re" ((pto_T__)(~0x80000000))); break; default: __bad_percpu_size(); } } while (0);
+# do { typedef typeof((__preempt_count)) pto_T__; if (0) { pto_T__ pto_tmp__; pto_tmp__ = (~0x80000000); (void)pto_tmp__; } switch (sizeof((__preempt_count))) { case 1: asm("and" "b %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "qi" ((pto_T__)(~0x80000000))); break; case 2: asm("and" "w %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "ri" ((pto_T__)(~0x80000000))); break; case 4: asm("and" "l %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "ri" ((pto_T__)(~0x80000000))); break; case 8: asm("and" "q %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "re" ((pto_T__)(~0x80000000))); break; default: __bad_percpu_size(); } } while (0);
 }
 
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) void clear_preempt_need_resched(void)
 {
- do { typedef typeof((__preempt_count)) pto_T__; if (0) { pto_T__ pto_tmp__; pto_tmp__ = (0x80000000); (void)pto_tmp__; } switch (sizeof((__preempt_count))) { case 1: asm("or" "b %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "qi" ((pto_T__)(0x80000000))); break; case 2: asm("or" "w %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "ri" ((pto_T__)(0x80000000))); break; case 4: asm("or" "l %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "ri" ((pto_T__)(0x80000000))); break; case 8: asm("or" "q %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "re" ((pto_T__)(0x80000000))); break; default: __bad_percpu_size(); } } while (0);
+# do { typedef typeof((__preempt_count)) pto_T__; if (0) { pto_T__ pto_tmp__; pto_tmp__ = (0x80000000); (void)pto_tmp__; } switch (sizeof((__preempt_count))) { case 1: asm("or" "b %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "qi" ((pto_T__)(0x80000000))); break; case 2: asm("or" "w %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "ri" ((pto_T__)(0x80000000))); break; case 4: asm("or" "l %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "ri" ((pto_T__)(0x80000000))); break; case 8: asm("or" "q %1,""%%""gs"":" "%P" "0" : "+m" ((__preempt_count)) : "re" ((pto_T__)(0x80000000))); break; default: __bad_percpu_size(); } } while (0);
 }
 
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) bool test_preempt_need_resched(void)
@@ -6117,7 +6116,7 @@ static inline __attribute__((no_instrument_function)) __attribute__((always_inli
 
 static inline __attribute__((no_instrument_function)) __attribute__((always_inline)) bool __preempt_count_dec_and_test(void)
 {
- do { do { asm goto("decl" " " "%%""gs"":" "%P" "0" "; j" "e" " %l[cc_label]" : : "m" (__preempt_count) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
+ #do { do { asm goto("decl" " " "%%""gs"":" "%P" "0" "; j" "e" " %l[cc_label]" : : "m" (__preempt_count) : "memory" : cc_label); asm (""); } while (0); return 0; cc_label: return 1; } while (0);
 }
 
 

@@ -1,0 +1,4 @@
+digraph CFG_constant_test_bit {
+5 [label="5: return"]
+	
+}

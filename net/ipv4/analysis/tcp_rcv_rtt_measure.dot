@@ -1,0 +1,20 @@
+digraph CFG_tcp_rcv_rtt_measure {
+717 [label="717: if"]
+	717 -> 718
+	717 -> 719
+718 [label="718: goto"]
+	718 -> 723
+719 [label="719: instr"]
+	719 -> 720
+720 [label="720: if"]
+	720 -> 721
+	720 -> 722
+721 [label="721: return"]
+	
+722 [label="722: instr"]
+	722 -> 723
+723 [label="723: instr"]
+	723 -> 724
+724 [label="724: return"]
+	
+}

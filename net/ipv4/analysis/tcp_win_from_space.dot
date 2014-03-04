@@ -1,0 +1,11 @@
+digraph CFG_tcp_win_from_space {
+417 [label="417: if"]
+	417 -> 418
+	417 -> 419
+418 [label="418: instr"]
+	418 -> 420
+419 [label="419: instr"]
+	419 -> 420
+420 [label="420: return"]
+	
+}

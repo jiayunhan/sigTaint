@@ -1,0 +1,6 @@
+digraph CFG_fls64 {
+10 [label="10: instr"]
+	10 -> 11
+11 [label="11: return"]
+	
+}

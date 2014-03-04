@@ -1,0 +1,6 @@
+digraph CFG_skb_reset_network_header {
+142 [label="142: instr"]
+	142 -> 143
+143 [label="143: return"]
+	
+}

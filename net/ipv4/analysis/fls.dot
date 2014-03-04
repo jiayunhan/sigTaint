@@ -1,0 +1,6 @@
+digraph CFG_fls {
+8 [label="8: instr"]
+	8 -> 9
+9 [label="9: return"]
+	
+}

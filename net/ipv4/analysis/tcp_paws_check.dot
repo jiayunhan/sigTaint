@@ -1,0 +1,30 @@
+digraph CFG_tcp_paws_check {
+436 [label="436: if"]
+	436 -> 437
+	436 -> 438
+437 [label="437: return"]
+	
+438 [label="438: instr"]
+	438 -> 439
+439 [label="439: if"]
+	439 -> 440
+	439 -> 441
+440 [label="440: instr"]
+	440 -> 442
+441 [label="441: instr"]
+	441 -> 442
+442 [label="442: instr"]
+	442 -> 443
+443 [label="443: if"]
+	443 -> 444
+	443 -> 445
+444 [label="444: return"]
+	
+445 [label="445: if"]
+	445 -> 446
+	445 -> 447
+446 [label="446: return"]
+	
+447 [label="447: return"]
+	
+}

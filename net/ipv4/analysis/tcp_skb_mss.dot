@@ -1,0 +1,6 @@
+digraph CFG_tcp_skb_mss {
+373 [label="373: instr"]
+	373 -> 374
+374 [label="374: return"]
+	
+}

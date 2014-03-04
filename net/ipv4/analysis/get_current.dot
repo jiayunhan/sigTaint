@@ -1,0 +1,28 @@
+digraph CFG_get_current {
+31 [label="31: switch"]
+	31 -> 40
+	31 -> 38
+	31 -> 36
+	31 -> 34
+	31 -> 32
+32 [label="32: instr"]
+	32 -> 33
+33 [label="33: break"]
+	33 -> 41
+34 [label="34: instr"]
+	34 -> 35
+35 [label="35: break"]
+	35 -> 41
+36 [label="36: instr"]
+	36 -> 37
+37 [label="37: break"]
+	37 -> 41
+38 [label="38: instr"]
+	38 -> 39
+39 [label="39: break"]
+	39 -> 41
+40 [label="40: instr"]
+	40 -> 41
+41 [label="41: return"]
+	
+}

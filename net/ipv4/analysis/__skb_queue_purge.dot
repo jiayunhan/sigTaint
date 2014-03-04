@@ -1,0 +1,15 @@
+digraph CFG___skb_queue_purge {
+161 [label="161: loop"]
+	161 -> 162
+162 [label="162: instr"]
+	162 -> 163
+163 [label="163: if"]
+	163 -> 165
+	163 -> 164
+164 [label="164: break"]
+	164 -> 166
+165 [label="165: instr"]
+	165 -> 161
+166 [label="166: return"]
+	
+}

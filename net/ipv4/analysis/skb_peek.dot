@@ -1,0 +1,11 @@
+digraph CFG_skb_peek {
+97 [label="97: instr"]
+	97 -> 98
+98 [label="98: if"]
+	98 -> 99
+	98 -> 100
+99 [label="99: instr"]
+	99 -> 100
+100 [label="100: return"]
+	
+}

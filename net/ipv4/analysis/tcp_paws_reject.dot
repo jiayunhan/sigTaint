@@ -1,0 +1,21 @@
+digraph CFG_tcp_paws_reject {
+448 [label="448: instr"]
+	448 -> 449
+449 [label="449: if"]
+	449 -> 450
+	449 -> 451
+450 [label="450: return"]
+	
+451 [label="451: if"]
+	451 -> 452
+	451 -> 455
+452 [label="452: instr"]
+	452 -> 453
+453 [label="453: if"]
+	453 -> 454
+	453 -> 455
+454 [label="454: return"]
+	
+455 [label="455: return"]
+	
+}

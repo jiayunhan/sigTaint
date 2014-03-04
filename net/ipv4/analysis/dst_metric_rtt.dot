@@ -1,0 +1,6 @@
+digraph CFG_dst_metric_rtt {
+234 [label="234: instr"]
+	234 -> 235
+235 [label="235: return"]
+	
+}

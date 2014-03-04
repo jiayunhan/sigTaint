@@ -1,0 +1,28 @@
+digraph CFG_skb_queue_next {
+73 [label="73: loop"]
+	73 -> 74
+74 [label="74: instr"]
+	74 -> 75
+75 [label="75: if"]
+	75 -> 76
+	75 -> 77
+76 [label="76: instr"]
+	76 -> 78
+77 [label="77: instr"]
+	77 -> 78
+78 [label="78: instr"]
+	78 -> 79
+79 [label="79: if"]
+	79 -> 80
+	79 -> 83
+80 [label="80: loop"]
+	80 -> 81
+81 [label="81: instr"]
+	81 -> 82
+82 [label="82: break"]
+	82 -> 83
+83 [label="83: break"]
+	83 -> 84
+84 [label="84: return"]
+	
+}

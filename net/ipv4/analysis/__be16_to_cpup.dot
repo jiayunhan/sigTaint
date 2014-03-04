@@ -1,0 +1,6 @@
+digraph CFG___be16_to_cpup {
+21 [label="21: instr"]
+	21 -> 22
+22 [label="22: return"]
+	
+}

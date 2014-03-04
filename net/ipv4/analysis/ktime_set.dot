@@ -1,0 +1,15 @@
+digraph CFG_ktime_set {
+54 [label="54: instr"]
+	54 -> 55
+55 [label="55: if"]
+	55 -> 56
+	55 -> 58
+56 [label="56: instr"]
+	56 -> 57
+57 [label="57: return"]
+	
+58 [label="58: instr"]
+	58 -> 59
+59 [label="59: return"]
+	
+}

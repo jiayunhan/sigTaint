@@ -1,0 +1,6 @@
+digraph CFG___skb_queue_head {
+111 [label="111: instr"]
+	111 -> 112
+112 [label="112: return"]
+	
+}

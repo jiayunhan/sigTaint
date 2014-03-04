@@ -1,0 +1,6 @@
+digraph CFG___be32_to_cpup {
+19 [label="19: instr"]
+	19 -> 20
+20 [label="20: return"]
+	
+}
