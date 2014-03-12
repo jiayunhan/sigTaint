@@ -1,4 +1,0 @@
-digraph CFG_ktime_equal {
-60 [label="60: return"]
-	
-}

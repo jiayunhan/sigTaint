@@ -1,6 +1,0 @@
-digraph CFG_get_unaligned_be16 {
-498 [label="498: instr"]
-	498 -> 499
-499 [label="499: return"]
-	
-}

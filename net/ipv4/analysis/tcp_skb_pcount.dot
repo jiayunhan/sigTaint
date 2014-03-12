@@ -1,6 +1,0 @@
-digraph CFG_tcp_skb_pcount {
-371 [label="371: instr"]
-	371 -> 372
-372 [label="372: return"]
-	
-}

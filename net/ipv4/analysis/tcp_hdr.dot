@@ -1,6 +1,0 @@
-digraph CFG_tcp_hdr {
-336 [label="336: instr"]
-	336 -> 337
-337 [label="337: return"]
-	
-}

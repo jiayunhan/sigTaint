@@ -1,6 +1,0 @@
-digraph CFG_tcp_fast_path_on {
-351 [label="351: instr"]
-	351 -> 352
-352 [label="352: return"]
-	
-}

@@ -1,6 +1,0 @@
-digraph CFG_skb_set_network_header {
-144 [label="144: instr"]
-	144 -> 145
-145 [label="145: return"]
-	
-}

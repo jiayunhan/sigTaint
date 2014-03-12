@@ -1,4 +1,0 @@
-digraph CFG_skb_queue_empty {
-70 [label="70: return"]
-	
-}

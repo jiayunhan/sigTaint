@@ -1,4 +1,0 @@
-digraph CFG_skb_queue_is_first {
-72 [label="72: return"]
-	
-}

@@ -1,6 +1,0 @@
-digraph CFG_atomic_add {
-49 [label="49: instr"]
-	49 -> 50
-50 [label="50: return"]
-	
-}

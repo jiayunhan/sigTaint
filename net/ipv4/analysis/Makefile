@@ -30,6 +30,9 @@ run-cilprint: cilprint test1.i main.i
 ciltest1: ciltest1.cmx
 	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
 
+parse: code/parse.cmx
+	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
+
 run-ciltest1: ciltest1 test1.i main.i
 	./ciltest1
 
@@ -74,7 +77,7 @@ libvirt-syms:
 # Clean.
 
 clean:
-	rm -f *~ *.bak core *.cmi *.cmo *.cmx *.cma *.cmxa *.o *.so *.a \
+	rm -f *~ *.bak core *.cmi *.cmo *.cmx *.cma *.cmxa *.o *.so *.a code/*.cmi code/*.cmo code/*.cmx code/*.cma code/*.cmxa code/*.a code/*.o\
 	  test cilprint *.i ciltest1 *.dot cilimportvirt
 
 # Distribution.

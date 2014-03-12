@@ -1,4 +1,0 @@
-digraph CFG_tcp_rsk {
-340 [label="340: return"]
-	
-}

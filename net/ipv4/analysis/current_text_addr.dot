@@ -1,6 +1,0 @@
-digraph CFG_current_text_addr {
-46 [label="46: instr"]
-	46 -> 47
-47 [label="47: return"]
-	
-}

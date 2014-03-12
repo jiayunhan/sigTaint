@@ -1,6 +1,0 @@
-digraph CFG___skb_queue_tail {
-113 [label="113: instr"]
-	113 -> 114
-114 [label="114: return"]
-	
-}

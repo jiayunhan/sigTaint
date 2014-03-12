@@ -1,4 +1,0 @@
-digraph CFG_skb_is_nonlinear {
-121 [label="121: return"]
-	
-}

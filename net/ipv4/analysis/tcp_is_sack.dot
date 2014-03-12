@@ -1,4 +1,0 @@
-digraph CFG_tcp_is_sack {
-384 [label="384: return"]
-	
-}

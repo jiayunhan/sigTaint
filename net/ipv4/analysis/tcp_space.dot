@@ -1,6 +1,0 @@
-digraph CFG_tcp_space {
-421 [label="421: instr"]
-	421 -> 422
-422 [label="422: return"]
-	
-}

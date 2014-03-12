@@ -1,6 +1,0 @@
-digraph CFG_tcp_clear_options {
-338 [label="338: instr"]
-	338 -> 339
-339 [label="339: return"]
-	
-}

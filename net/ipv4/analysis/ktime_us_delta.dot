@@ -1,6 +1,0 @@
-digraph CFG_ktime_us_delta {
-63 [label="63: instr"]
-	63 -> 64
-64 [label="64: return"]
-	
-}

@@ -1,6 +1,0 @@
-digraph CFG_tcp_write_queue_next {
-464 [label="464: instr"]
-	464 -> 465
-465 [label="465: return"]
-	
-}

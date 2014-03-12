@@ -1,6 +1,0 @@
-digraph CFG_tcp_dsack_seen {
-835 [label="835: instr"]
-	835 -> 836
-836 [label="836: return"]
-	
-}

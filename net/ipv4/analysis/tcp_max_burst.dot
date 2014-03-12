@@ -1,4 +1,0 @@
-digraph CFG_tcp_max_burst {
-409 [label="409: return"]
-	
-}

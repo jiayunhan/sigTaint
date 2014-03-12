@@ -1,6 +1,0 @@
-digraph CFG_sock_net {
-305 [label="305: instr"]
-	305 -> 306
-306 [label="306: return"]
-	
-}

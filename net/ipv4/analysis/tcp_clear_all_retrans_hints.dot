@@ -1,6 +1,0 @@
-digraph CFG_tcp_clear_all_retrans_hints {
-458 [label="458: instr"]
-	458 -> 459
-459 [label="459: return"]
-	
-}

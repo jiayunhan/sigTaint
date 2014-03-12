@@ -1,6 +1,0 @@
-digraph CFG_tcp_write_queue_prev {
-466 [label="466: instr"]
-	466 -> 467
-467 [label="467: return"]
-	
-}

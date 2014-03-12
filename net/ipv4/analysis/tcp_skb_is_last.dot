@@ -1,6 +1,0 @@
-digraph CFG_tcp_skb_is_last {
-469 [label="469: instr"]
-	469 -> 470
-470 [label="470: return"]
-	
-}

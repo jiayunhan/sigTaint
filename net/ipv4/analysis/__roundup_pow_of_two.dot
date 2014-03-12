@@ -1,6 +1,0 @@
-digraph CFG___roundup_pow_of_two {
-28 [label="28: instr"]
-	28 -> 29
-29 [label="29: return"]
-	
-}

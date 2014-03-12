@@ -1,6 +1,0 @@
-digraph CFG___swab16p {
-15 [label="15: instr"]
-	15 -> 16
-16 [label="16: return"]
-	
-}

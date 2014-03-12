@@ -1,6 +1,0 @@
-digraph CFG_tcp_clear_retrans_partial {
-2499 [label="2499: instr"]
-	2499 -> 2500
-2500 [label="2500: return"]
-	
-}

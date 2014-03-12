@@ -1,6 +1,0 @@
-digraph CFG_atomic_long_read {
-52 [label="52: instr"]
-	52 -> 53
-53 [label="53: return"]
-	
-}

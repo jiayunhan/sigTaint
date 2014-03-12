@@ -1,6 +1,0 @@
-digraph CFG_get_unaligned_be32 {
-500 [label="500: instr"]
-	500 -> 501
-501 [label="501: return"]
-	
-}

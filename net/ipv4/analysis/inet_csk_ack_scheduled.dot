@@ -1,6 +1,0 @@
-digraph CFG_inet_csk_ack_scheduled {
-310 [label="310: instr"]
-	310 -> 311
-311 [label="311: return"]
-	
-}

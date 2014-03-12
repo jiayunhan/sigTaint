@@ -1,6 +1,0 @@
-digraph CFG_dst_metric_locked {
-236 [label="236: instr"]
-	236 -> 237
-237 [label="237: return"]
-	
-}

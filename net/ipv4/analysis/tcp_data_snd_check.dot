@@ -1,6 +1,0 @@
-digraph CFG_tcp_data_snd_check {
-7181 [label="7181: instr"]
-	7181 -> 7182
-7182 [label="7182: return"]
-	
-}

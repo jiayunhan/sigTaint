@@ -1,6 +1,0 @@
-digraph CFG_alloc_skb {
-67 [label="67: instr"]
-	67 -> 68
-68 [label="68: return"]
-	
-}

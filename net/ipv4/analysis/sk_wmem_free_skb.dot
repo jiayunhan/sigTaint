@@ -1,6 +1,0 @@
-digraph CFG_sk_wmem_free_skb {
-289 [label="289: instr"]
-	289 -> 290
-290 [label="290: return"]
-	
-}

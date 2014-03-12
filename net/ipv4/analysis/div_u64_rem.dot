@@ -1,6 +1,0 @@
-digraph CFG_div_u64_rem {
-42 [label="42: instr"]
-	42 -> 43
-43 [label="43: return"]
-	
-}

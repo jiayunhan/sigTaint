@@ -1,6 +1,0 @@
-digraph CFG_ktime_to_us {
-61 [label="61: instr"]
-	61 -> 62
-62 [label="62: return"]
-	
-}

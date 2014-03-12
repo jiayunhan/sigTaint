@@ -1,4 +1,0 @@
-digraph CFG_inet_csk {
-307 [label="307: return"]
-	
-}

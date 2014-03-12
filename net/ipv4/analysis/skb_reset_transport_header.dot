@@ -1,6 +1,0 @@
-digraph CFG_skb_reset_transport_header {
-137 [label="137: instr"]
-	137 -> 138
-138 [label="138: return"]
-	
-}

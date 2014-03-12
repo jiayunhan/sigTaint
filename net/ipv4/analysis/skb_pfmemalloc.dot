@@ -1,6 +1,0 @@
-digraph CFG_skb_pfmemalloc {
-65 [label="65: instr"]
-	65 -> 66
-66 [label="66: return"]
-	
-}

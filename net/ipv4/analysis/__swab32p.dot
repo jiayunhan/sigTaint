@@ -1,6 +1,0 @@
-digraph CFG___swab32p {
-17 [label="17: instr"]
-	17 -> 18
-18 [label="18: return"]
-	
-}

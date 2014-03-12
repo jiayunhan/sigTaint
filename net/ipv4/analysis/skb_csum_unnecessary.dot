@@ -1,4 +1,0 @@
-digraph CFG_skb_csum_unnecessary {
-169 [label="169: return"]
-	
-}

@@ -1,6 +1,0 @@
-digraph CFG_tcp_mtup_probe_failed {
-3524 [label="3524: instr"]
-	3524 -> 3525
-3525 [label="3525: return"]
-	
-}

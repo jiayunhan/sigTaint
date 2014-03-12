@@ -1,6 +1,0 @@
-digraph CFG_tcp_highest_sack_reset {
-489 [label="489: instr"]
-	489 -> 490
-490 [label="490: return"]
-	
-}

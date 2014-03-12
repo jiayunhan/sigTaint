@@ -1,6 +1,0 @@
-digraph CFG___clear_bit {
-3 [label="3: instr"]
-	3 -> 4
-4 [label="4: return"]
-	
-}

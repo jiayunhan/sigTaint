@@ -1,6 +1,0 @@
-digraph CFG_tcp_sack_reset {
-415 [label="415: instr"]
-	415 -> 416
-416 [label="416: return"]
-	
-}

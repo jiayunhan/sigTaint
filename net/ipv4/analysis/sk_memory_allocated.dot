@@ -1,6 +1,0 @@
-digraph CFG_sk_memory_allocated {
-257 [label="257: instr"]
-	257 -> 258
-258 [label="258: return"]
-	
-}

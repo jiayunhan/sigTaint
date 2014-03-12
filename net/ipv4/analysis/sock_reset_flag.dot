@@ -1,6 +1,0 @@
-digraph CFG_sock_reset_flag {
-248 [label="248: instr"]
-	248 -> 249
-249 [label="249: return"]
-	
-}

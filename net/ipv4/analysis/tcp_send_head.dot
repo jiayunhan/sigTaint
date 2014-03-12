@@ -1,4 +1,0 @@
-digraph CFG_tcp_send_head {
-468 [label="468: return"]
-	
-}

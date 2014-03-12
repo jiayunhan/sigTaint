@@ -1,4 +1,0 @@
-digraph CFG_skb_mac_header {
-146 [label="146: return"]
-	
-}

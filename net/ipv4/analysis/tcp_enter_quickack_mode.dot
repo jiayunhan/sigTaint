@@ -1,6 +1,0 @@
-digraph CFG_tcp_enter_quickack_mode {
-532 [label="532: instr"]
-	532 -> 533
-533 [label="533: return"]
-	
-}

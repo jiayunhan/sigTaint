@@ -1,9 +1,0 @@
-digraph CFG_skb_dst_drop {
-241 [label="241: if"]
-	241 -> 242
-	241 -> 243
-242 [label="242: instr"]
-	242 -> 243
-243 [label="243: return"]
-	
-}

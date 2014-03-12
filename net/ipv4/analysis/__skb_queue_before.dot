@@ -1,6 +1,0 @@
-digraph CFG___skb_queue_before {
-109 [label="109: instr"]
-	109 -> 110
-110 [label="110: return"]
-	
-}
