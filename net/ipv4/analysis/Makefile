@@ -78,7 +78,7 @@ libvirt-syms:
 
 clean:
 	rm -f *~ *.bak core *.cmi *.cmo *.cmx *.cma *.cmxa *.o *.so *.a code/*.cmi code/*.cmo code/*.cmx code/*.cma code/*.cmxa code/*.a code/*.o\
-	  test cilprint *.i ciltest1 *.dot cilimportvirt
+	  test cilprint *.i ciltest1 *.dot cilimportvirt parse
 
 # Distribution.
 

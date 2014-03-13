@@ -2,8 +2,10 @@
 open Printf
 open Cil
 
-let files = [ "../tcp_input.i" ;"../tcp.i"]
-
+(*let files = [ "../tcp_input.i" ;"../tcp.i"]*)
+let ()=printf "Please input .i files separated with spaces \n"
+let input_file=read_line() 
+let files=Str.split(Str.regexp " ") input_file ;;
 let () =
   (* Load each input file. *)
   let files =
@@ -37,12 +39,14 @@ let () =
     | GVarDecl _ -> ()			(* variable/function prototype *)
     | GVar _ -> ()			(* variable definition *)
     | GFun (fundec, loc) ->		(* function definition *)
-	printf "%s:%d: %s has %d arg(s)\n"
+      (*printf "%s:%d: %s has %d arg(s)\n"
 	  loc.file loc.line fundec.svar.vname (List.length fundec.sformals);
 
 	(* If it's a library function, print its CFG to a file. *)
 	if loc.file = "net/ipv4/tcp_input.c" then
-	  Cfg.printCfgFilename (fundec.svar.vname ^ ".dot") fundec
+         Cfg.printCfgFilename (fundec.svar.vname ^ ".dot") fundec*)
+      if fundec.svar.vname = "tcp_rcv_established" then
+        Cfg.printCfgFilename (fundec.svar.vname ^ ".dot") fundec
 
     | GAsm _ -> ()			(* global asm statement *)
     | GPragma _ -> ()			(* toplevel #pragma *)

@@ -1,0 +1,6 @@
+digraph CFG_tcp_data_snd_check {
+7925 [label="7925: instr"]
+	7925 -> 7926
+7926 [label="7926: return"]
+	
+}
