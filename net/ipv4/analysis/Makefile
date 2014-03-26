@@ -32,7 +32,8 @@ ciltest1: ciltest1.cmx
 
 parse: code/parse.cmx
 	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
-
+pointer: code/pointer.cmx
+	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
 run-ciltest1: ciltest1 test1.i main.i
 	./ciltest1
 
@@ -41,24 +42,6 @@ cilimportvirt: cilimportvirt.cmx
 
 run-cilimportvirt: build-libvirt libvirt-files libvirt-syms cilimportvirt
 	./cilimportvirt
-
-build-libvirt:
-	if [ ! -f $(LIBVIRTDIR)/Makefile ]; then \
-	  cd $(LIBVIRTDIR) && ./autogen.sh; \
-	fi
-	if [ ! -f $(LIBVIRTDIR)/tests/virshtest.i ]; then \
-	  make -C $(LIBVIRTDIR) CC="gcc -save-temps"; \
-	  rm -f libvirt-files; \
-	fi
-
-libvirt-files:
-	find $(LIBVIRTDIR) -name '*.i' | \
-	  egrep '/(qemud|src)/' | \
-	  egrep -v 'virsh.i' > $@
-
-libvirt-syms:
-	egrep -io '\bvir[a-z0-9]+' \
-	  < $(LIBVIRTDIR)/src/libvirt_sym.version > $@
 
 # Run the C files through the C preprocessor.
 
@@ -78,7 +61,7 @@ libvirt-syms:
 
 clean:
 	rm -f *~ *.bak core *.cmi *.cmo *.cmx *.cma *.cmxa *.o *.so *.a code/*.cmi code/*.cmo code/*.cmx code/*.cma code/*.cmxa code/*.a code/*.o\
-	  test cilprint *.i ciltest1 *.dot cilimportvirt parse
+	  test cilprint *.i ciltest1 *.dot cilimportvirt parse pointer
 
 # Distribution.
 

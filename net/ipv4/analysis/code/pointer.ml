@@ -1,11 +1,22 @@
 
 open Printf
 open Cil
-
+open Ptranal
 (*let files = [ "../tcp_input.i" ;"../tcp.i"]*)
 let ()=printf "Please input .i files separated with spaces \n"
 let input_file=read_line() 
 let files=Str.split(Str.regexp " ") input_file ;;
+(* Function print funtion statement kind*)
+let print_fun_stmt_kind stmt=
+	match stmt.skind with
+		|Instr inst_list->
+			List.iter(fun instr ->
+				match instr with
+				|Set _->()
+				|_ ->()
+			)inst_list
+		|_->()
+	
 let () =
   (* Load each input file. *)
   let files =
@@ -29,6 +40,7 @@ let () =
   printf "CIL has loaded the files, merged them and removed unused code.\n\n";
 
   printf "Merged file has %d globals ...\n\n" (List.length file.globals);
+  Ptranal.analyze_file(file);
   List.iter (
     function
     | GType _ -> ()			(* typedef *)
@@ -39,13 +51,11 @@ let () =
     | GVarDecl _ -> ()			(* variable/function prototype *)
     | GVar _ -> ()			(* variable definition *)
     | GFun (fundec, loc) ->		(* function definition *)
-      (*printf "%s:%d: %s has %d arg(s)\n"
-	  loc.file loc.line fundec.svar.vname (List.length fundec.sformals);
-       *)
-      if fundec.svar.vname = "tcp_rcv_established" then
-        Cfg.printCfgFilename (fundec.svar.vname ^ ".dot") fundec
-
+        List.iter(fun stmt->
+			print_fun_stmt_kind stmt
+        )fundec.sallstmts
     | GAsm _ -> ()			(* global asm statement *)
     | GPragma _ -> ()			(* toplevel #pragma *)
     | GText _ -> ()			(* verbatim text, comments *)
   ) file.globals;
+
