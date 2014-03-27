@@ -26,10 +26,8 @@ cilprint: cilprint.cmx
 
 run-cilprint: cilprint test1.i main.i
 	@./cilprint
-
-ciltest1: ciltest1.cmx
+field:code/field.cmx
 	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
-
 parse: code/parse.cmx
 	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
 pointer: code/pointer.cmx
@@ -61,7 +59,7 @@ run-cilimportvirt: build-libvirt libvirt-files libvirt-syms cilimportvirt
 
 clean:
 	rm -f *~ *.bak core *.cmi *.cmo *.cmx *.cma *.cmxa *.o *.so *.a code/*.cmi code/*.cmo code/*.cmx code/*.cma code/*.cmxa code/*.a code/*.o\
-	  test cilprint *.i ciltest1 *.dot cilimportvirt parse pointer
+	  test cilprint *.i ciltest1 *.dot cilimportvirt parse pointer field
 
 # Distribution.
 

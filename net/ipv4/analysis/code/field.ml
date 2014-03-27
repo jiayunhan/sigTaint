@@ -1,4 +1,3 @@
-
 open Printf
 open Cil
 open Ptranal
@@ -13,17 +12,13 @@ let print_fun_stmt_kind stmt=
 			List.iter(fun instr ->
 				match instr with
 				|Set (lval,exp,_)->
-					match lval with
+					(match lval with
 						| (Var vinfo,_) ->  
-							printf "May aliases for %s:\t" vinfo.vname;
-							List.iter 
-								(fun a_vinfo ->
-									printf "%s" a_vinfo.vname)
-									(Ptranal.resolve_lval lval);
-							printf "\n"  
-						|_ ->()
-				|_ ->()
-			)inst_list
+							printf "vinfo.vname= %s:\n" vinfo.vname;
+						|_ ->())
+                |Call _->()
+                |Asm _->()
+			)inst_list;
 		|_->()
 	
 let () =
@@ -31,7 +26,6 @@ let () =
   let files =
     List.map (
       fun filename ->
-	(* Why does parse return a continuation? *)
 	let f = Frontc.parse filename in
 	f ()
     ) files in
@@ -49,8 +43,6 @@ let () =
   printf "CIL has loaded the files, merged them and removed unused code.\n\n";
 
   printf "Merged file has %d globals ...\n\n" (List.length file.globals);
-  Ptranal.analyze_file(file);
-  Ptranal.compute_results(true);
   List.iter (
     function
     | GType _ -> ()			(* typedef *)
@@ -60,7 +52,8 @@ let () =
     | GEnumTagDecl _ -> ()		(* forward prototype of enum *)
     | GVarDecl _ -> ()			(* variable/function prototype *)
     | GVar _ -> ()			(* variable definition *)
-    | GFun (fundec, loc) ->		(* function definition *)
+    | GFun (fundec, loc) ->	
+        printf "function name: %s\n" fundec.svar.vname;
         List.iter(fun stmt->
 			print_fun_stmt_kind stmt
         )fundec.sallstmts
