@@ -1,4 +1,4 @@
-	.file	"test_field.c"
+	.file	"test_field.cil.c"
 	.text
 	.globl	recv
 	.type	recv, @function
@@ -14,7 +14,10 @@ recv:
 	movq	-8(%rbp), %rax
 	movl	$0, 8(%rax)
 	movq	-8(%rbp), %rax
-	movb	$99, 12(%rax)
+	movb	$100, 12(%rax)
+	movq	-8(%rbp), %rax
+	movzbl	12(%rax), %eax
+	movsbl	%al, %eax
 	popq	%rbp
 	.cfi_def_cfa 7, 8
 	ret
@@ -31,17 +34,18 @@ main:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	subq	$16, %rsp
+	subq	$32, %rsp
 	movl	$8, %edi
 	call	malloc
 	movq	%rax, -8(%rbp)
-	movl	$40, %edi
-	call	malloc
-	movq	%rax, %rdx
-	movq	-8(%rbp), %rax
-	movq	%rdx, (%rax)
 	movq	-8(%rbp), %rax
 	movq	%rax, -16(%rbp)
+	movl	$40, %edi
+	call	malloc
+	movq	%rax, -24(%rbp)
+	movq	-16(%rbp), %rax
+	movq	-24(%rbp), %rdx
+	movq	%rdx, (%rax)
 	movq	-16(%rbp), %rax
 	movq	%rax, %rdi
 	call	recv

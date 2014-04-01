@@ -1,8 +1,11 @@
-	.file	"test_field.c"
+	.file	"test_funptr.c"
+	.section	.rodata
+.LC0:
+	.string	"%d\n"
 	.text
-	.globl	recv
-	.type	recv, @function
-recv:
+	.globl	my_int_func
+	.type	my_int_func, @function
+my_int_func:
 .LFB0:
 	.cfi_startproc
 	pushq	%rbp
@@ -10,17 +13,19 @@ recv:
 	.cfi_offset 6, -16
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
-	movq	%rdi, -8(%rbp)
-	movq	-8(%rbp), %rax
-	movl	$0, 8(%rax)
-	movq	-8(%rbp), %rax
-	movb	$99, 12(%rax)
-	popq	%rbp
+	subq	$16, %rsp
+	movl	%edi, -4(%rbp)
+	movl	-4(%rbp), %eax
+	movl	%eax, %esi
+	movl	$.LC0, %edi
+	movl	$0, %eax
+	call	printf
+	leave
 	.cfi_def_cfa 7, 8
 	ret
 	.cfi_endproc
 .LFE0:
-	.size	recv, .-recv
+	.size	my_int_func, .-my_int_func
 	.globl	main
 	.type	main, @function
 main:
@@ -32,19 +37,10 @@ main:
 	movq	%rsp, %rbp
 	.cfi_def_cfa_register 6
 	subq	$16, %rsp
-	movl	$8, %edi
-	call	malloc
-	movq	%rax, -8(%rbp)
-	movl	$40, %edi
-	call	malloc
-	movq	%rax, %rdx
+	movq	$my_int_func, -8(%rbp)
 	movq	-8(%rbp), %rax
-	movq	%rdx, (%rax)
-	movq	-8(%rbp), %rax
-	movq	%rax, -16(%rbp)
-	movq	-16(%rbp), %rax
-	movq	%rax, %rdi
-	call	recv
+	movl	$2, %edi
+	call	*%rax
 	movl	$0, %eax
 	leave
 	.cfi_def_cfa 7, 8

@@ -11,61 +11,31 @@ let print_fun_stmt_kind stmt=
 		|Instr inst_list->
 			List.iter(fun instr ->
 				match instr with
-				|Set (lval,exp,_)->
-					printf "Lval->Addr... ";	
-					let expr=mkAddrOrStartOf lval in
-					(match expr with
-						|Lval _->()
-						|AddrOf (Mem expr2,offset)->printf "AddrOf:";
-							(**(match expr2 with	
-							|Lval (Var varin,_)->printf "var= %s |" varin.vname
-							|AddrOf _->printf "AddrOf :"
-							|_->printf "else: "
-							)**)
-							(match offset with
-							|NoOffset -> printf "NoOffset.|"
-							|Field (fieldinfo,_)-> printf "Field: %s\n" fieldinfo.fname;
-							|Index _-> printf "Index. |"
-							)
-						|_->printf " Else\n"
-						);					
-					(match lval with
-						| (Var vinfo,_) ->  ()
-						| (Mem exp,_)-> 
-							(match exp with
-							|Const _->printf "Const\n"
-							|Lval lval->
-								(match lval with
-								| (Var vinfo,offset) ->
-									(match offset with
-									|NoOffset -> ()
-									|Field _-> printf "Field.\n"
-									|Index _-> printf "Index.\n"
-									)
-								|_ ->()
+				|Set (lval,exp,loc)->printf "Set %d\n" loc.line
+				|Call (_,exp,_,loc)->printf "Call %d:" loc.line;
+					(match exp with
+						|Lval (Var vinfo,_)->printf "Lval Var:%s\n" vinfo.vname
+						|Lval (Mem expr,_)-> printf "Mem:";
+							(match exp with 
+							|Lval (Mem expr,_)->printf "Mem:";
+								(match exp with
+								|Lval(Mem expr,_) ->printf "Mem\n"
+								|_->()
 								)
-							|SizeOf _->printf "Sizeof\n"
-							|SizeOfE _->printf "SizeofE\n"
-							|SizeOfStr _->printf "SizeofStr\n"
-							|AlignOf _->printf "AlignOf\n"
-							|AlignOfE _->printf "AlignOfE\n"
-							|UnOp _->printf "UnOp\n"
-							|BinOp _->printf "BinOp\n"
-							|CastE _->printf "CastE\n"
-							|AddrOf _->printf "AddrOf\n"
-							|StartOf _->printf "StartOf\n"
-							|_ -> printf "else..\n")
-						);
-                |Call _->()
-                |Asm _->()
-			)inst_list;
-		|_->()
-	
+							|_->()
+							)
+						|_->()
+					)
+				|_ ->()
+			)inst_list
+		|Return _->printf "Return"
+		|_->printf "else\n"
 let () =
   (* Load each input file. *)
   let files =
     List.map (
       fun filename ->
+	(* Why does parse return a continuation? *)
 	let f = Frontc.parse filename in
 	f ()
     ) files in
@@ -92,8 +62,8 @@ let () =
     | GEnumTagDecl _ -> ()		(* forward prototype of enum *)
     | GVarDecl _ -> ()			(* variable/function prototype *)
     | GVar _ -> ()			(* variable definition *)
-    | GFun (fundec, loc) ->	
-        printf "function name: %s\n" fundec.svar.vname;
+    | GFun (fundec, loc) ->		(* function definition *)
+		printf "In function: %s\n" fundec.svar.vname;
         List.iter(fun stmt->
 			print_fun_stmt_kind stmt
         )fundec.sallstmts

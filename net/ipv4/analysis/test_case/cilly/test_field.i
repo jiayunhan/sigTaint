@@ -1850,15 +1850,15 @@ struct sock{
  int b;
  char c;
 };
-void recv(struct sock* socket){
+int recv(struct sock* socket){
  socket->b=0;
- socket->c='c';
+ socket->c=100;
+ return socket->c;
 }
 int main()
 {
  struct sock* socket=(struct sock*)malloc(sizeof(struct sock*));
  socket->array = (int *)malloc(sizeof(int[10]));
- struct sock* s=socket;
- recv(s);
+ recv(socket);
  return 0;
 }
