@@ -1,6 +1,0 @@
-digraph CFG_tcp_store_ts_recent {
-5140 [label="5140: instr"]
-	5140 -> 5141
-5141 [label="5141: return"]
-	
-}

@@ -1,6 +1,0 @@
-digraph CFG_tcp_reset_reno_sack {
-3241 [label="3241: instr"]
-	3241 -> 3242
-3242 [label="3242: return"]
-	
-}

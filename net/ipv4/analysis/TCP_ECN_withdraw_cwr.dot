@@ -1,6 +1,0 @@
-digraph CFG_TCP_ECN_withdraw_cwr {
-1292 [label="1292: instr"]
-	1292 -> 1293
-1293 [label="1293: return"]
-	
-}

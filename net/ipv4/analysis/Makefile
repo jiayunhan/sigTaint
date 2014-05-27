@@ -16,31 +16,27 @@ OCAMLOPTINCS := $(OCAMLCINCS)
 OCAMLOPTPACKAGES := $(OCAMLCPACKAGES)
 OCAMLOPTLIBS := -linkpkg
 
-all:	test cilprint ciltest1 cilimportvirt
+all:	taintGamma printer taintPrinter
 
-test:	main.o test1.o
-	$(CC) $(CFLAGS) $^ -o $@
-
-cilprint: cilprint.cmx
-	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
-
-funptr: code/funptr.cmx
+funptr: code/tests/funptr.cmx
 	    ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
-field:code/field.cmx
+field:code/tests/field.cmx
 	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
-parse: code/parse.cmx
+parse: code/tests/parse.cmx
 	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
-pointer: code/pointer.cmx
-	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
-run-ciltest1: ciltest1 test1.i main.i
-	./ciltest1
-
-cilimportvirt: cilimportvirt.cmx
+pointer: code/tests/pointer.cmx
 	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
 
-run-cilimportvirt: build-libvirt libvirt-files libvirt-syms cilimportvirt
-	./cilimportvirt
+## Taint analysis engine
 
+printer: code/printer.cmx
+	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
+taint: code/taint.cmx
+	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
+taintGamma: code/taintGamma.cmx
+	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o $@
+taintPrinter: code/taintPrinter.cmx
+	ocamlfind ocamlopt $(OCAMLOPTFLAGS) $(OCAMLOPTINCS) $(OCAMLOPTPACKAGES) $(OCAMLOPTLIBS) $^ -o code/taintGamma.cmo $@	        
 # Run the C files through the C preprocessor.
 
 .c.i:
@@ -59,7 +55,8 @@ run-cilimportvirt: build-libvirt libvirt-files libvirt-syms cilimportvirt
 
 clean:
 	rm -f *~ *.bak core *.cmi *.cmo *.cmx *.cma *.cmxa *.o *.so *.a code/*.cmi code/*.cmo code/*.cmx code/*.cma code/*.cmxa code/*.a code/*.o\
-	  test cilprint *.i ciltest1 *.dot cilimportvirt parse pointer field
+	  test cilprint *.i ciltest1 *.dot cilimportvirt parse\
+	   pointer field taint printer taintPrinter taintGamma 
 
 # Distribution.
 
